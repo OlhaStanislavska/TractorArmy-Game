@@ -1,0 +1,48 @@
+body, select, button {
+    font-family: "Lucida Console", monospace;
+}
+
+.header {
+    width: 860px;
+    margin: 0 auto;
+    color: green;
+    font-size: 22px;
+}
+
+canvas {
+    display: block;
+    margin: 0 auto;
+    border: 2px solid green;
+}
+
+.footer {
+    color: green;
+    text-align: center;
+    font-size: 13px;
+    padding: 12px;
+    margin: 0 auto;
+}
+
+#button {
+    background-color: green;
+    color: white;
+    border: 0px;
+    padding: 4px;
+    font-size: 14px;
+    float: right;
+}
+
+.form-select {
+    background-color: #e2ecb5;
+    padding: 8px;
+    width: 250px;
+    border: 0px;
+    margin-bottom: 3px;
+    float: right;
+    font-size: 14px;
+}
+
+select {
+    margin: 2px;
+}
+
