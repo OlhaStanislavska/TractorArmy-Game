@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <link href="/static/styles.css" rel="stylesheet">
+        <title>Tractor army</title>
+    </head>
+
+    <body>
+        <div class="header">
+            <span style="float: left; width: 46%">
+                <img src="img/logo.png" alt="tractorArmy">
+            </span>
+
+            <div>
+                <div class="form-select">
+                    <select aria-label="Default select example" autocomplete="off" id="level" name="level">
+                        <option disabled selected value="default">Обери свій рівень</option>
+                        <option value="level 1">Перший раз на полі</option>
+                        <option value="level 2">2000 га досвіду</option>
+                        <option value="level 3">Тракторист-сенсей</option>
+                    </select>
+                    <button id="button" type="submit">Погнали</button>
+               </div>
+
+                <span style="float: right;  margin-top: 14px; text-align: right">
+                    <span>Танчиків для ЗСУ: </span><span id="score">0</span>
+                </span>
+            </div>
+
+            <canvas class="canvas" id="canvas" width="860" height="510"></canvas>
+        </div>
+
+        <div class="footer">
+            Made by Olha Stanislavska for CS50 &#169; 2022
+        </div>
+
+        <script src="/js/tractor.js"></script>
+    </body>
+
+</html>
