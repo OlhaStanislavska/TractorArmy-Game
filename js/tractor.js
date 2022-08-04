@@ -7,7 +7,6 @@ let cols = 12;
 let score = 0;
 let direction = "";
 let connected = false;
-let checkPrompt = true;
 let roundCounter = 0;
 let speed = 0;
 let tractorBoom = false;
@@ -19,7 +18,6 @@ let tankImg = new Image();
 let bg = new Image();
 let bgStart = new Image();
 let arrowsImg = new Image();
-let promptImg = new Image();
 let bulletTopImg = new Image();
 let bulletBottomImg = new Image();
 let boomImg = new Image();
@@ -36,7 +34,6 @@ bgStart.src = "img/bgStart.png";
 tankImg.src = "img/tank2.png";
 tractorImg.src = "img/tractor.png";
 arrowsImg.src = "img/arrows.png";
-promptImg.src = "img/prompt.png";
 bulletTopImg.src = "img/bulletTop.png";
 bulletBottomImg.src = "img/bulletBottom.png";
 boomImg.src = "img/boom.png";
@@ -75,15 +72,6 @@ let bulletBottom = [
 
 let blocks = [];
 
-/* let blocks = [
-    {x: 2 * boxSize + 10, y: 1 * boxSize + 10},
-    {x: 3 * boxSize + 10, y: 4 * boxSize + 10},
-    {x: 5 * boxSize + 10, y: 3 * boxSize + 10},
-    {x: 8 * boxSize + 10, y: 5 * boxSize + 10},
-    {x: 10 * boxSize + 10, y: 1 * boxSize + 10}
-] */
-
-//2-1  4-5  7-3  10-2
 let blocksLevel1 = [
     {x: 2 * boxSize + 10, y: 1 * boxSize + 10},
     {x: 4 * boxSize + 10, y: 5 * boxSize + 10},
@@ -91,7 +79,6 @@ let blocksLevel1 = [
     {x: 10 * boxSize + 10, y: 2 * boxSize + 10}
 ]
 
-//2-1  3-4  5-2  5-3  7-0  8-5  10-1
 let blocksLevel2 = [
     {x: 2 * boxSize + 10, y: 1 * boxSize + 10},
     {x: 3 * boxSize + 10, y: 4 * boxSize + 10},
@@ -102,7 +89,6 @@ let blocksLevel2 = [
     {x: 10 * boxSize + 10, y: 1 * boxSize + 10}
 ]
 
-//2-0  2-2  4-5  4-6  6-2  6-3  7-4  9-1  10-3  10-4
 let blocksLevel3 = [
     {x: 2 * boxSize + 10, y: 0 * boxSize + 10},
     {x: 2 * boxSize + 10, y: 2 * boxSize + 10},
@@ -141,6 +127,7 @@ function tractorDirection(e) {
             break;
     }
 }
+
 document.addEventListener("keyup", function () {direction = ""});
 
 function tractorMove() {
@@ -181,11 +168,6 @@ function tractorTankMove() {
         tractorImg.src = "img/tractor.png";
         arrows.y = tank.y;
     }
-    /* if (direction == "left" && tractor.x > (boxSize + 10)) {
-        tank.x = tractor.x;
-        tank.y = tractor.y;
-        tractor.x -= boxSize;
-    } */
     if (direction == "right" && tractor.x < ((cols - 1)*boxSize + 10) && checkBlocks(tractor.x + boxSize, tractor.y)) {
         tank.x = tractor.x;
         tank.y = tractor.y;
@@ -252,8 +234,6 @@ function checkBoom() {
             tank.x = 10;
             tank.y = Math.floor(Math.random() * rows)*boxSize + 10;
             arrows.y = tank.y;
-            //tractor.x = 780;
-            //tractor.y = 220;
             tractorImg.src = "img/tractor.png";
         }
     }
@@ -274,8 +254,6 @@ function clearFlags() {
     tank.y = Math.floor(Math.random() * rows) * boxSize + 10;
     arrows.y = tank.y;
 }
-
-
 
 function drawBlocks() {
     for (let i = 0; i < blocks.length; i++) {
@@ -358,8 +336,6 @@ document.getElementById('button').addEventListener("click", function() {
 });
 
 setInterval(draw, 100);
-
-//setInterval(bulletMove(bulletTop, bulletBottom), 150);
 
 
 
